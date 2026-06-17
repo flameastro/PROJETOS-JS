@@ -34,24 +34,27 @@ addBtn.addEventListener("click", addTask)
 function addTask() {
     let id = tasksSection.childElementCount + 1
     const name = document.querySelector("#name").value
-    const date = document.querySelector("#date").value
+    let date = document.querySelector("#date").value
+    if (!date) {
+        date = undefined
+    }
 
-    if (name && date) {
+    if (name) {
         tasksSection.innerHTML += `
-                    <article id="${id}">
-                        <div>
-                            <p>${name}</p>
-                        </div>
-    
-                        <div>
-                            <p>${date}</p>
-                        </div>
-    
-                        <div>
-                            <button class="delete">Delete</button>
-                        </div>
-                    </article>
-                `
+            <article id="${id}">
+                <div>
+                    <p>${name}</p>
+                </div>
+
+                <div>
+                    <p>${date}</p>
+                </div>
+
+                <div>
+                    <button class="delete">Delete</button>
+                </div>
+            </article>
+        `
 
         deleteButtons()
 
@@ -64,7 +67,7 @@ function addTask() {
         tasks.push(newTask)
         localStorage.setItem("tasks", JSON.stringify(tasks))
     } else {
-        alert("Fill all the spaces")
+        alert("Fill the task name space")
     }
 }
 
