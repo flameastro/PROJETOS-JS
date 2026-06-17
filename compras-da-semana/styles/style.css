@@ -1,0 +1,43 @@
+:root {
+    --font-space: "Space Grotesk", sans-serif;
+    --font-tilt: "Tilt Warp", sans-serif;
+    --font-manrope: "Manrope", sans-serif;
+}
+
+main {
+    margin-top: 25px;
+}
+
+main, .data, .data div, .results, .btns {
+    display: flex;
+}
+
+main, .data, .data div {
+    font-family: var(--font-space);
+    flex-direction: column;
+    align-items: center;
+}
+
+h1, h2 {
+    font-family: var(--font-tilt);
+}
+
+p {
+    margin: 2.5px;
+}
+
+.btns {
+    flex-direction: column;
+    margin: 5px;
+}
+
+.btn {
+    margin: 5px;
+    width: 200px;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

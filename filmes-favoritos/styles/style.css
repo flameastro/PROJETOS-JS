@@ -1,0 +1,79 @@
+:root {
+    --font-manrope: "Manrope", sans-serif;
+    --font-space: "Space Grotesk", sans-serif;
+    --font-tilt: "Tilt Warp", sans-serif;
+}
+
+main {
+    margin: 10px;
+    font-family: var(--font-space);
+}
+
+h1 {
+    font-family: var(--font-tilt);
+}
+
+.add span {
+    font-size: 16px;
+}
+
+table {
+    font-family: var(--font-manrope);
+    font-size: 0.8em;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.table-option {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    padding: 2px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+}
+
+.table-option:hover {
+    filter: opacity(75%);
+}
+
+.table-delete {
+    background-color: red;
+}
+
+.table-success {
+    background-color: green;
+}
+
+.reajust {
+    position: relative;
+    margin-right: 5px;
+    top: 3px;
+}
+
+@media screen and (min-width: 576px) {
+    table {
+        font-size: 0.9em;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    table {
+        font-size: 1em;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .data {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .data input {
+        width: 70vw;
+    }
+}
