@@ -1,0 +1,100 @@
+:root {
+    --font-bricolage: "Bricolage Grotesque", sans-serif;
+    --font-lexend: "Lexend", sans-serif;
+}
+
+* {
+    font-family: var(--font-bricolage);
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    background-color: #a1b8ff;
+    display: flex;
+    justify-content: center;
+}
+
+h1, p, a {
+    font-family: var(--font-lexend);
+    color: #2256f3;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+main, .input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}
+
+main {
+    margin-top: 25px;
+    width: 400px;
+    border-radius: 12px;
+    height: fit-content;
+    padding: 10px;
+}
+
+input {
+    margin: 2px;
+    width: 500px !important;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+}
+
+.add {
+    width: 95%;
+}
+
+button {
+    margin: 5px;
+}
+
+section {
+    width: 100%;
+}
+
+.bookmarks div {
+    background-color: #d2d2d2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 12px;
+    margin: 5px;
+}
+
+
+@media screen and (min-width: 576px) {
+    main {
+        width: 80vw;
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+    main {
+        width: 50vw;
+    }
+}
+
+
+@media screen and (min-width: 992px) {
+    main {
+        width: fit-content;
+    }
+}
