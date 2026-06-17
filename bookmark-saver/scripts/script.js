@@ -2,25 +2,74 @@ const bookmarksSection = document.querySelector(".bookmarks")
 const btnAdd = document.querySelector(".add")
 btnAdd.addEventListener("click", addBookmark)
 
+let bookmarks = []
+function getPreviousBookmarks() {
+    let getBookmarks = JSON.parse(localStorage.getItem("bookmarks"))
+    let id = 1
+
+    if (getBookmarks) {
+        for (let bookmark of getBookmarks) {
+            bookmark.id = id
+            bookmarks.push(bookmark)
+
+            bookmarksSection.innerHTML += `
+                <div id="${id}">
+                    <span><a href="${bookmark.url}" target="_blank">${bookmark.name}</a></span>
+                    <button class="delete">Delete</button>
+                </div>
+            `
+
+            id++
+        }
+    }
+}
+
+getPreviousBookmarks()
+
+
 function addBookmark() {
     const name = document.querySelector("#bookmark").value
     const url = document.querySelector("#url").value
+    let id = bookmarksSection.childElementCount+1
 
+    // TODO: Fazer validação de nome e url
     bookmarksSection.innerHTML += `
-        <div>
-            <p><a href="${url}">${name}</a></p>
-            <button class="delete"></button>
+        <div id="${id}">
+            <span><a href="${url}" target="_blank">${name}</a></span>
+            <button class="delete">Delete</button>
         </div>
     `
+
+
+    let newBookmark = {
+        "id": id,
+        "name": name,
+        "url": url
+    }
+
+    bookmarks.push(newBookmark)
+    localStorage.setItem("bookmarks", JSON.stringify(bookmarks))
+    console.log(bookmarks)
 
     deleteBookmark()
 }
 
+
 function deleteBookmark() {
-    const btnDeletes = document.querySelectorAll(".delete")
-    btnDeletes.forEach(btn => {
+    let newBookmark = []
+
+    const btnsDelete = document.querySelectorAll(".delete")
+    btnsDelete.forEach(btn => {
         btn.addEventListener("click", () => {
-            btn.parentNode.remove()
+            let btnId = btn.parentNode.id
+            for (let bookmark of bookmarks) {
+                if (btnId != bookmark.id) {
+                    newBookmark.push(bookmark)
+                }
+            }
+
+            localStorage.setItem("bookmarks", JSON.stringify(newBookmark))
+            location.reload()
         })
     })
 }
