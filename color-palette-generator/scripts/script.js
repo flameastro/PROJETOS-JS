@@ -1,3 +1,4 @@
+const messagesSection = document.querySelector(".messages")
 const btnGenerate = document.querySelector(".generate")
 btnGenerate.addEventListener("click", createPalette)
 
@@ -17,6 +18,7 @@ function generatePalette() {
     return colors
 }
 
+
 function createPalette() {
     const colors = generatePalette()
 
@@ -24,9 +26,41 @@ function createPalette() {
     paletteSection.innerHTML = ""
     for (let color of colors) {
         paletteSection.innerHTML += `
-            <div class="color" style="color: #${color}">
-                <p>${color}</p>
-            </div>
+            <article>
+                <div class="color" style="background-color: #${color}"></div>
+                <p>#${color}</p>
+            </article>
         `
+
+        copyToClipboard()
     }
+}
+
+
+function copyToClipboard() {
+    const articles = document.querySelectorAll("article")
+    articles.forEach(article => {
+        article.addEventListener("click", () => {
+            let color = article.lastElementChild.innerText
+            navigator.clipboard.writeText(color)
+
+            messagesSection.style.visibility = "visible"
+            messagesSection.innerHTML = `
+                <p>Cor colada com sucesso</p>
+            `
+
+            // https://www.reddit.com/r/learnjavascript/comments/winvtd/how_do_i_create_a_fade_in_affect_for_dynamically/
+            messagesSection.animate([{
+                opacity: 1
+            }, {
+                opacity: -1
+            }], {
+                duration: 1560
+            })
+
+            setTimeout(() => {
+                messagesSection.style.visibility = "hidden"
+            }, 1500)
+        })
+    })
 }
