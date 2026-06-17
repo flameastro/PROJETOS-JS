@@ -28,7 +28,7 @@ function createPalette() {
         paletteSection.innerHTML += `
             <article>
                 <div class="color" style="background-color: #${color}"></div>
-                <p>#${color}</p>
+                <p>#${color}<span class="material-symbols-outlined">content_copy</span></p>
             </article>
         `
 
@@ -36,12 +36,14 @@ function createPalette() {
     }
 }
 
+createPalette()
+
 
 function copyToClipboard() {
     const articles = document.querySelectorAll("article")
     articles.forEach(article => {
         article.addEventListener("click", () => {
-            let color = article.lastElementChild.innerText
+            let color = article.childNodes[3].innerText.slice(0, article.childNodes[3].innerText.indexOf("content_copy"))
             navigator.clipboard.writeText(color)
 
             messagesSection.style.visibility = "visible"
