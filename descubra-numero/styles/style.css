@@ -1,0 +1,59 @@
+:root {
+    --font-manrope: "Manrope", sans-serif;
+    --font-outfit: "Outfit", sans-serif;
+    --font-space: "Space Grotesk", sans-serif;
+}
+
+h1 {
+    font-family: var(--font-outfit);
+}
+
+main, button {
+    font-family: var(--font-space);
+}
+
+input {
+    font-family: var(--font-manrope);
+}
+
+main, .data div, .result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.data div {
+    margin-bottom: 10px;
+}
+
+.results {
+    margin: 5px;
+}
+
+.results p {
+    margin: 2.5px;
+    padding: 0;
+}
+
+button {
+    background-color: whitesmoke;
+    border: 1.5px solid black;
+    border-radius: 4.5px;
+    padding: 5px 10px;
+    transition: all 0.25s ease-in-out;
+    width: 175px;
+    margin: 2px;
+}
+
+button:hover {
+    background-color: rgb(58, 58, 58);
+    color: whitesmoke;
+}
+
+button:active {
+    background-color: rgb(134, 134, 134);
+}
+
+.reset {
+    display: none;
+}
