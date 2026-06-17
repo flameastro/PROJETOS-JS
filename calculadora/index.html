@@ -7,35 +7,46 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Lexend:wght@100..900&family=Manrope:wght@200..800&family=Outfit:wght@100..900&family=Space+Grotesk:wght@300..700&family=Tilt+Warp&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <title>Calculadora</title>
 </head>
 <body>
     <main>
-        <article class="calculadora">
-            <section class="btns">
-                <section class="result"><span></span></section>
-                <button onclick="del()" class="btn-special">DEL</button>
-                <button onclick="cl()" class="btn-special">CL</button>
-                <button onclick="addChar('(')">(</button>
-                <button onclick="addChar(')')">)</button>
-                <button onclick="addChar(7)">7</button>
-                <button onclick="addChar(8)">8</button>
-                <button onclick="addChar(9)">9</button>
-                <button onclick="addChar('+')" class="btn-special">+</button>
-                <button onclick="addChar(4)">4</button>
-                <button onclick="addChar(5)">5</button>
-                <button onclick="addChar(6)">6</button>
-                <button onclick="addChar('-')" class="btn-special">-</button>
-                <button onclick="addChar(1)">1</button>
-                <button onclick="addChar(2)">2</button>
-                <button onclick="addChar(3)">3</button>
-                <button onclick="addChar('*')" class="btn-special">X</button>
-                <button onclick="addChar(0)">0</button>
-                <button onclick="addChar('.')">,</button>
-                <button onclick="getResult()" class="btn-special">=</button>
-                <button onclick="addChar('/')" class="btn-special">/</button>
-            </section>
-        </article>
+        <div class="history">
+            <span class="material-symbols-outlined">history</span>
+    
+            <div id="calcs" class="hidden">
+                <!-- calcs -->
+            </div>
+        </div>
+
+        <section>
+            <article class="calculadora">
+                <section class="btns">
+                    <section class="result"><span></span></section>
+                    <button onclick="del()" class="btn-special">DEL</button>
+                    <button onclick="cl()" class="btn-special">CL</button>
+                    <button onclick="addChar('(')">(</button>
+                    <button onclick="addChar(')')">)</button>
+                    <button onclick="addChar(7)">7</button>
+                    <button onclick="addChar(8)">8</button>
+                    <button onclick="addChar(9)">9</button>
+                    <button onclick="addChar('+')" class="btn-special">+</button>
+                    <button onclick="addChar(4)">4</button>
+                    <button onclick="addChar(5)">5</button>
+                    <button onclick="addChar(6)">6</button>
+                    <button onclick="addChar('-')" class="btn-special">-</button>
+                    <button onclick="addChar(1)">1</button>
+                    <button onclick="addChar(2)">2</button>
+                    <button onclick="addChar(3)">3</button>
+                    <button onclick="addChar('*')" class="btn-special">X</button>
+                    <button onclick="addChar(0)">0</button>
+                    <button onclick="addChar('.')">,</button>
+                    <button onclick="getResult()" class="btn-special">=</button>
+                    <button onclick="addChar('/')" class="btn-special">/</button>
+                </section>
+            </article>
+        </section>
     </main>
 
     <script src="scripts/script.js"></script>

@@ -15,10 +15,10 @@ body {
     background-color: #257cffa5;
 }
 
-main {
+main > section {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     height: 100vh;
 }
 
@@ -69,4 +69,26 @@ button:hover {
 .btn-special {
     border: 2.5px solid #580000;
     background-color: #ff5b5b;
+}
+
+.material-symbols-outlined {
+    color: #161616;
+    font-size: 32px !important;
+    cursor: pointer;
+    width: fit-content;
+    transition: all 0.15s ease-in-out;
+}
+
+.material-symbols-outlined:hover {
+    color: #424242;
+}
+
+.history {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+
+.interact {
+    cursor: pointer;
 }

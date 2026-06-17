@@ -1,4 +1,61 @@
 let result = document.querySelector(".result > span")
+let calcs = []
+
+function openHistory() {
+    const history = document.querySelector(".history > span")
+    const calcs = document.querySelector(".history #calcs")
+    calcs.style.display = "none"
+    history.addEventListener("click", () => {
+        if (calcs.style.display == "none") {
+            calcs.style.display = "block"
+            interactCalc()
+        } else {
+            calcs.style.display = "none"
+        }
+    })
+}
+
+openHistory()
+
+
+function getPreviousCalcs() {
+    const get = JSON.parse(localStorage.getItem("calcs"))
+    calcs = []
+    for (let calc of get) {
+        calcs.push(calc)
+    }
+
+    return calcs
+}
+
+
+function addCalcsToHistory() {
+    const calcsSection = document.querySelector("#calcs")
+    calcsSection.innerHTML = ""
+
+    calcs = getPreviousCalcs()
+    for (let calc of calcs) {
+        calcsSection.innerHTML += `
+            <p>
+                <span class="interact" style="color: #303030";>${calc.slice(0, calc.indexOf("="))}</span> = 
+                <span style="color: #212121";>${calc.slice(calc.indexOf("=")+2)}</span>
+            </p>
+        `
+    }
+}
+
+function interactCalc() {
+    const interact = document.querySelectorAll(".interact")
+    interact.forEach(calcIn => {
+        calcIn.addEventListener("click", () => {
+            result.innerText = calcIn.innerText
+        })
+    })
+}
+
+
+addCalcsToHistory()
+
 
 function addChar(char) {
     if (result.innerText == "Erro!") {
@@ -7,6 +64,7 @@ function addChar(char) {
         result.innerText += char
     }
 }
+
 
 function del() {
     result = document.querySelector(".result > span")
@@ -19,16 +77,25 @@ function del() {
     result.innerText = r
 }
 
+
 function cl() {
     result.innerText = ""
 }
+
 
 function getResult() {
     try {
         if (!result.innerText) {
             result.innerText = "Erro!"
         } else {
+            let calcResult = result.innerHTML
             result.innerText = eval(result.innerText)
+            calcResult = `${calcResult} = ${result.innerHTML}`
+
+            calcs.push(calcResult)
+            localStorage.setItem("calcs", JSON.stringify(calcs))
+            addCalcsToHistory()
+            interactCalc()
         }
     } catch (error) {
         result.innerText = "Erro!"
