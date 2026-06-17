@@ -15,7 +15,7 @@ function getPreviousBookmarks() {
             bookmarksSection.innerHTML += `
                 <div id="${id}">
                     <span><a href="${bookmark.url}" target="_blank">${bookmark.name}</a></span>
-                    <button class="delete">Delete</button>
+                    <button type="button" class="delete btn btn-danger">Delete</button>
                 </div>
             `
 
@@ -32,26 +32,27 @@ function addBookmark() {
     const url = document.querySelector("#url").value
     let id = bookmarksSection.childElementCount+1
 
-    // TODO: Fazer validação de nome e url
-    bookmarksSection.innerHTML += `
-        <div id="${id}">
-            <span><a href="${url}" target="_blank">${name}</a></span>
-            <button class="delete">Delete</button>
-        </div>
-    `
+    if ((name.length > 0 && name.length <= 50) && (url.length > 0)) {
+        bookmarksSection.innerHTML += `
+            <div id="${id}">
+                <span><a href="${url}" target="_blank">${name}</a></span>
+                <button type="button" class="delete btn btn-danger">Delete</button>
+            </div>
+        `
 
+        let newBookmark = {
+            "id": id,
+            "name": name,
+            "url": url
+        }
 
-    let newBookmark = {
-        "id": id,
-        "name": name,
-        "url": url
+        bookmarks.push(newBookmark)
+        localStorage.setItem("bookmarks", JSON.stringify(bookmarks))
+
+        deleteBookmark()
+    } else {
+        alert("The name length need to be greather than 0 and less or equal than 50")
     }
-
-    bookmarks.push(newBookmark)
-    localStorage.setItem("bookmarks", JSON.stringify(bookmarks))
-    console.log(bookmarks)
-
-    deleteBookmark()
 }
 
 
