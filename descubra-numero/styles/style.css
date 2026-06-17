@@ -1,11 +1,17 @@
 :root {
     --font-manrope: "Manrope", sans-serif;
-    --font-outfit: "Outfit", sans-serif;
+    --font-tilt: "Tilt Warp", sans-serif;
     --font-space: "Space Grotesk", sans-serif;
 }
 
+body {
+    background-color: #131313;
+    color: white;
+}
+
 h1 {
-    font-family: var(--font-outfit);
+    margin-top: 25px;
+    font-family: var(--font-tilt);
 }
 
 main, button {
