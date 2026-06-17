@@ -1,3 +1,20 @@
+:root {
+    --font-space: "Space Grotesk", sans-serif;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    font-family: var(--font-space);
+    font-size: 20px;
+}
+
+body {
+    background-color: #257cffa5;
+}
+
 main {
     display: flex;
     align-items: center;
@@ -5,15 +22,11 @@ main {
     height: 100vh;
 }
 
-::-webkit-scrollbar {
-    display: none;
-}
-
 .calculadora {
-    background-color: #d1d1d1;
+    background-color: #e9ecef;
     padding: 15px;
     border-radius: 12px;
-    border: 5px solid #303030;
+    border: 5px solid #181818;
     width: 360px;
     display: flex;
     align-items: center;
@@ -21,7 +34,7 @@ main {
 }
 
 .result {
-    background-color: rgba(3, 156, 3, 0.49);
+    background-color: #32bb32;
     border-radius: 7px;
     width: 300px;
     height: 25px;
@@ -30,6 +43,7 @@ main {
     justify-content: end;
     padding: 10px;
     margin: 10px 0;
+    overflow-x: scroll;
 }
 
 .btns {
@@ -44,9 +58,15 @@ button {
     border-radius: 7px;
     border: 2.5px solid #464646;
     margin: 2.5px;
+    background-color: #f4f4f4;
+    transition: all 0.1s ease-in-out;
+}
+
+button:hover {
+    filter: opacity(70%);
 }
 
 .btn-special {
     border: 2.5px solid #580000;
-    background-color: #c00000;
+    background-color: #ff5b5b;
 }
