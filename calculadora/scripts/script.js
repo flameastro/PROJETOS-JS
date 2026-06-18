@@ -1,3 +1,4 @@
+const calcsSection = document.querySelector("#calcs")
 let result = document.querySelector(".result > span")
 let calcs = []
 
@@ -15,8 +16,6 @@ function openHistory() {
     })
 }
 
-openHistory()
-
 
 function getPreviousCalcs() {
     const get = JSON.parse(localStorage.getItem("calcs"))
@@ -30,8 +29,7 @@ function getPreviousCalcs() {
 
 
 function addCalcsToHistory() {
-    const calcsSection = document.querySelector("#calcs")
-    calcsSection.innerHTML = ""
+    calcsSection.innerHTML = `<button class="btn btn-link">Clear</button>`
 
     calcs = getPreviousCalcs()
     for (let calc of calcs) {
@@ -42,7 +40,22 @@ function addCalcsToHistory() {
             </p>
         `
     }
+
+    deleteHistory()
 }
+
+
+function deleteHistory() {
+    const btnClear = document.querySelector(".btn-link")
+    btnClear.addEventListener("click", () => {
+        calcs = []
+        localStorage.setItem("calcs", JSON.stringify(calcs))
+        calcsSection.innerHTML = `<button class="btn btn-link">Clear</button>`
+
+        location.reload()
+    })
+}
+
 
 function interactCalc() {
     const interact = document.querySelectorAll(".interact")
@@ -52,9 +65,6 @@ function interactCalc() {
         })
     })
 }
-
-
-addCalcsToHistory()
 
 
 function addChar(char) {
@@ -101,3 +111,7 @@ function getResult() {
         result.innerText = "Erro!"
     }
 }
+
+openHistory()
+addCalcsToHistory()
+deleteHistory()

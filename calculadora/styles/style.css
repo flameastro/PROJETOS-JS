@@ -92,3 +92,11 @@ button:hover {
 .interact {
     cursor: pointer;
 }
+
+.btn-link {
+    width: fit-content;
+    height: fit-content;
+    margin: 5px;
+    padding: 0;
+    text-decoration: none;
+}
