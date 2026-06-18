@@ -2,10 +2,34 @@ const calcsSection = document.querySelector("#calcs")
 let result = document.querySelector(".result > span")
 let calcs = []
 
-function openHistory() {
+
+function addChar(char) {
+    result.innerText == "Erro!" ? result.innerText = char : result.innerText += char
+}
+
+
+function del() {
+    result = document.querySelector(".result > span")
+    let r = ""
+
+    for (let i = 0; i < result.innerText.length-1; i++) {
+        r += result.innerText[i]
+    }
+
+    result.innerText = r
+}
+
+
+function cl() {
+    result.innerText = ""
+}
+
+
+function toggleHistory() {
     const history = document.querySelector(".history > span")
     const calcs = document.querySelector(".history #calcs")
-    calcs.style.display = "none"
+
+    calcs.style.display = "none" // Padrão -> sem aparecer
     history.addEventListener("click", () => {
         if (calcs.style.display == "none") {
             calcs.style.display = "block"
@@ -20,6 +44,7 @@ function openHistory() {
 function getPreviousCalcs() {
     const get = JSON.parse(localStorage.getItem("calcs"))
     calcs = []
+
     for (let calc of get) {
         calcs.push(calc)
     }
@@ -67,32 +92,6 @@ function interactCalc() {
 }
 
 
-function addChar(char) {
-    if (result.innerText == "Erro!") {
-        result.innerText = char
-    } else {
-        result.innerText += char
-    }
-}
-
-
-function del() {
-    result = document.querySelector(".result > span")
-    let r = ""
-
-    for (let i = 0; i < result.innerText.length-1; i++) {
-        r += result.innerText[i]
-    }
-
-    result.innerText = r
-}
-
-
-function cl() {
-    result.innerText = ""
-}
-
-
 function getResult() {
     try {
         if (!result.innerText) {
@@ -112,6 +111,7 @@ function getResult() {
     }
 }
 
-openHistory()
+
+toggleHistory()
 addCalcsToHistory()
 deleteHistory()
