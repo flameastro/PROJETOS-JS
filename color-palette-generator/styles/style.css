@@ -24,7 +24,7 @@ h1, button {
     margin: 10px;
 }
 
-.palette {
+.palette > section, .favorites > section {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -33,7 +33,7 @@ h1, button {
     border-radius: 12px;
 }
 
-.palette article {
+.palette article, .favorites article {
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -45,9 +45,26 @@ h1, button {
     transition: all 0.2s ease-in-out;
 }
 
-.palette article:hover {
+.palette article:hover, .favorites article:hover {
     transform: scale(1.10);
     box-shadow: 0 0 20px #8080801f;
+}
+
+.favorites {
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 12px;
+    background-color: #d6d6d6;
+}
+
+.favorites article {
+    margin: 10px;
+}
+
+.favorites > section {
+    background-color: #c1c1c1;
+    margin: 15px;
 }
 
 .color {
@@ -55,6 +72,13 @@ h1, button {
     margin: 5px;
     width: 100px;
     height: 100px;
+}
+
+.fcolor {
+    border-radius: 17px;
+    margin: 5px;
+    width: 75px;
+    height: 75px;
 }
 
 .messages {
