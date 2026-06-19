@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Lexend:wght@100..900&family=Manrope:wght@200..800&family=Outfit:wght@100..900&family=Space+Grotesk:wght@300..700&family=Tilt+Warp&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
     <link rel="stylesheet" href="styles/style.css">
     <title>Programa Contando Dinheiro</title>
 </head>
@@ -17,10 +18,11 @@
 
         <section class="data">
             <div class="input mb-3">
-                <select name="difficulty" id="difficulty">
+                <select class="form-select" name="difficulty" id="difficulty">
                     <option value="easy">Fácil</option>
                     <option value="normal">Normal</option>
                     <option value="hard">Difícil</option>
+
                 </select>
             </div>
 
@@ -30,8 +32,8 @@
             </div>
 
             <div class="btns">
-                <button type="button" class="btn btn-success start">Começar</button>
-                <button type="button" class="btn btn-primary verify">Conferir Resposta</button>
+                <button type="button" class="btn btn-success start"><span class="material-symbols-outlined">flag</span>Começar</button>
+                <button type="button" class="btn btn-primary verify"><span class="material-symbols-outlined">check</span>Conferir Resposta</button>
             </div>
         </section>
 

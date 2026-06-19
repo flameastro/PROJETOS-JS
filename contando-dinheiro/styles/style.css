@@ -22,7 +22,7 @@ h1 {
 }
 
 .btns {
-    flex-direction: column;
+    flex-direction: row !important;
     margin: 5px;
 }
 
@@ -40,6 +40,12 @@ h1 {
 
 img {
     width: 75px;
+}
+
+.material-symbols-outlined {
+    position: relative;
+    top: 5.5px;
+    right: 2px;
 }
 
 
